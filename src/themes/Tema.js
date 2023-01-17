@@ -8,12 +8,14 @@ const Tema = createTheme({
     primary: {
       main: '#ff8000',
       darker: '#ff8000',
-      contrastText: '#000000'
+      contrastText: '#000000',
+      white:'#ffffff'
     },
     fondo: {
       main: '#333333',
-      contrastText: '#ff8000',
+      contrastText: '#ff8000'
     },
+    
   },
 });
 

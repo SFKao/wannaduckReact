@@ -35,7 +35,7 @@ const ImageSrc = styled('span')({
   right: 0,
   top: 0,
   bottom: 0,
-  backgroundSize: 'cover',
+  backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
 });
@@ -59,7 +59,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
   right: 0,
   top: 0,
   bottom: 0,
-  backgroundColor: theme.palette.common.black,
+  backgroundColor: theme.palette.fondo.main,
   opacity: 0.4,
   transition: theme.transitions.create(['opacity', 'transform'],{
     duration: theme.transitions.duration.standard,

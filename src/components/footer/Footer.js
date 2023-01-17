@@ -1,4 +1,4 @@
-import { Grid, Button, Chip, Stack, Box } from '@mui/material'
+import { Button, Chip, Stack, Box } from '@mui/material'
 import React from 'react'
 import { ThemeProvider } from '@emotion/react';
 import Tema from '../../themes/Tema';
@@ -12,7 +12,9 @@ const Footer = () => {
             padding={3}
             justifyContent='space-between'
             sx = {
-                { bgcolor: 'fondo.main' }
+                { 
+            borderTop:'2px solid #ff8000'
+        }
             } >
                 <Stack direction='column' spacing={1}>
                     <Chip label = "Creado por: Óscar Melero Camacho"
@@ -23,7 +25,7 @@ const Footer = () => {
                     
                 </Stack>
                 <Stack direciton='column' spacing={1}>
-                    <a href='https://gitlab.iesvirgendelcarmen.com/omelcam934/wannaduck'>
+                    <a href='https://gitlab.iesvirgendelcarmen.com/omelcam934/wannaduck' style={{ textDecoration: 'none' }}>
                     <Button
                     variant = "contained"
                     color = 'primary' 
