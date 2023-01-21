@@ -14,6 +14,7 @@ import { useState } from 'react';
 import UserInfoScreen from './components/userInfoScreen/UserInfoScreen';
 import BuscarJuego from './components/buscarJuego/BuscarJuego'
 import ListaGenero from './components/listaGenero/ListaGenero';
+import MisFavoritos from './components/misFavoritos/MisFavoritos';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
     <Context.Provider value={[
       user, setUser,
       localDisplayName, setLocalDisplayName
+      
     ]}>
     <ThemeProvider theme={Tema}>
   <Box sx={{backgroundColor:'fondo.main'}}>
@@ -48,6 +50,7 @@ function App() {
     <Route exact path='/login' element={<Login/>}/>
     <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>
     <Route exact path='/genres/:genre' element={<ListaGenero/>}/>
+    <Route excat path='/user/myfavourites' element={<MisFavoritos/>}/>
     <Route path='*' element={<Error/>}/>
   </Routes>
   <Footer/>

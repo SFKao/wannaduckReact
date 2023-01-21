@@ -35,6 +35,7 @@ const firebaseConfig = {
   messagingSenderId: "565992897365",
   appId: "1:565992897365:web:ac9423b8adb150c9240ddc",
   measurementId: "G-X3MYKG4QRW",
+  databaseURL: "https://reactomelcam934-default-rtdb.europe-west1.firebasedatabase.app"
 };
 
 // Initialize Firebase
@@ -111,13 +112,15 @@ const UserInfoScreen = () => {
               Mi usuario
             </Button>
           </NavLink>
-          <Button
-            variant="outlined"
-            color="primary"
-            sx={{ borderRadius: "16px" }}
-          >
-            Mis favoritos
-          </Button>
+          <NavLink style={{textDecoration: "none"}} to="/user/myfavourites">
+            <Button
+              variant="outlined"
+              color="primary"
+              sx={{ borderRadius: "16px" }}
+            >
+              Mis favoritos
+            </Button>
+          </NavLink>
           <Button
             variant="outlined"
             color="primary"

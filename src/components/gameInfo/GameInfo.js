@@ -1,11 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { useParams} from "react-router-dom";
 import { Grid, Typography, CardMedia, Rating, Button, Box } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PieChartComponent from "../pieChartComponent/PieChartComponent";
-import juegoPrueba from "../../assets/juegoPrueba.json"
+
+import { initializeApp } from "firebase/app";
+import {getDatabase,ref,set,get,child,remove} from 'firebase/database';
+import { Context } from "../context/Context";
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC5fvNVD8TGscBrMvQ6OeZSSbdI_AbyJxo",
+  authDomain: "reactomelcam934.firebaseapp.com",
+  projectId: "reactomelcam934",
+  storageBucket: "reactomelcam934.appspot.com",
+  messagingSenderId: "565992897365",
+  appId: "1:565992897365:web:ac9423b8adb150c9240ddc",
+  measurementId: "G-X3MYKG4QRW",
+  databaseURL: "https://reactomelcam934-default-rtdb.europe-west1.firebasedatabase.app"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const GameInfo = () => {
+  const [user, , , ] = useContext(Context);
   const { game } = useParams();
   /*
   let juego = jsonDePrueba.results.filter((obj) => {
@@ -13,16 +33,44 @@ const GameInfo = () => {
   })[0];
   */
   const [juego, setJuego] = useState(null);
+  const [isFavorito, setFavorito] = useState(false);
+
   const loadGames = async () => {
     const url = `https://api.rawg.io/api/games/${game}?key=5dbb137cfae446feb3caaba262996ed3`
     let data = await fetch(url);
     data = await data.json();
     setJuego(data);
+    if(user){
+      const dbRed = ref(getDatabase(app));
+      get(child(dbRed, `users/${user.uid}/favs/${data.slug}`)).then((snapshot) => {
+        if (snapshot.exists())
+          setFavorito(true)
+      })
+    }
   }
 
   useEffect(() => {
     loadGames();
-  }, [])
+  },)
+
+  const handleFavoritos = () => {
+    if(!user){
+      return;
+    }
+    const db = getDatabase(app);
+    if (!isFavorito) {
+      set(ref(db, `users/${user.uid}/favs/${juego.slug}`), {
+        slug: juego.slug,
+        backgroundImage: juego.background_image,
+        name: juego.name,
+        rating: juego.rating
+      })
+      setFavorito(true);
+    } else {
+      remove(ref(db, `users/${user.uid}/favs/${juego.slug}`))
+      setFavorito(false);
+    }
+  }
 
   return (
 
@@ -86,10 +134,12 @@ const GameInfo = () => {
             <Button
               size="large"
               color="primary"
-              variant="contained"
+              variant={isFavorito ? "contained" : "outlined"}
               sx={{ color: "primary.white" }}
+              onClick={handleFavoritos}
+              disabled={!user}
             >
-              Favoritos
+              {user ? "Favoritos" : "Inicia sesión para poder guardar tus favoritos"}
               <FavoriteIcon />
             </Button>
           </div>
