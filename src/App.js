@@ -13,6 +13,7 @@ import {Context} from './components/context/Context'
 import { useState } from 'react';
 import UserInfoScreen from './components/userInfoScreen/UserInfoScreen';
 import BuscarJuego from './components/buscarJuego/BuscarJuego'
+import ListaGenero from './components/listaGenero/ListaGenero';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
     <Route excat path='/register' element={<Registrarse/>}/>
     <Route exact path='/login' element={<Login/>}/>
     <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>
+    <Route exact path='/genres/:genre' element={<ListaGenero/>}/>
     <Route path='*' element={<Error/>}/>
   </Routes>
   <Footer/>

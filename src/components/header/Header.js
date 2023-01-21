@@ -4,9 +4,10 @@ import HeaderButton from "../headerButton/HeaderButton";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   Button,
-  Input,
+  IconButton,
   InputAdornment,
   Stack,
+  TextField,
   ThemeProvider,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -45,26 +46,35 @@ const Header = () => {
         <NavLink style={{ textDecoration: "none" }} to="/">
           <HeaderButton url={duck} title="" width="100px" />
         </NavLink>
-        <Input
-          placeholder="Buscar"
-          onKeyDown={handleEnter}
+        <TextField
+          type="text"
+          label="Buscar"
+          variant="standard"
+          fullWidth
+          sx={{
+            input: { color: "primary.main" },
+            "& label": { color: "primary.main" },
+          }}
+          margin="normal"
           onChange={(state) => {
             setBusqueda(state.target.value);
           }}
-          endAdornment={
-            <InputAdornment position="end">
-              <SearchIcon
+          onKeyDown={handleEnter}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton IconButton
                   sx={{ color: "primary.main" }}
                   aria-label="toggle password visibility"
                   onClick={handleSearch}
                   //onMouseDown={}
-                />
-            </InputAdornment>
-          }
-          label="Buscar"
-          style={{ width: "75%" }}
-          sx={{ color: "primary.main" }}
-        ></Input>
+                >
+                <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
         {(() => {
           if (user == null) {
             return (

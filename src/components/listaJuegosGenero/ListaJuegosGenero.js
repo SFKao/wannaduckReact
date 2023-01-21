@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import TarjetaJuego from "../tartejaJuego/TarjetaJuego";
 import { Button, Grid } from "@mui/material";
-const ListaJuegos = () => {
+import { useParams } from "react-router-dom";
 
-  const [juegos, setJuegos] = useState([]);
+const ListaJuegosGenero = () => {
+
+
+    const { genre } = useParams();
+ const [juegos, setJuegos] = useState([]);
   const [pag, setPag] = useState(1);
 
   const loadGames = async () => {
-    const url = `https://api.rawg.io/api/games?key=5dbb137cfae446feb3caaba262996ed3&page_size=30&page=${pag}`
+    const url = `https://api.rawg.io/api/games?key=5dbb137cfae446feb3caaba262996ed3&page_size=30&page=${pag}&genres=${genre}`
     let data = await fetch(url);
     data = await data.json();
     //let data = jsonDePrueba;
@@ -51,9 +55,7 @@ const ListaJuegos = () => {
           </Button>
       </ >
     })())
-    
-    
   );
 };
 
-export default ListaJuegos;
+export default ListaJuegosGenero;

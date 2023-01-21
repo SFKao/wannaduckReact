@@ -1,0 +1,193 @@
+{
+"id": 27958,
+"slug": "advance-wars",
+"name": "Advance Wars",
+"name_original": "Advance Wars",
+"description": "<p>Orange Star&#39;s commanding officer has been accused of attacking other <br />\n      countries, causing war to ensue. The battle lines have been drawn, and <br />\n      an elite group of sly strategists is massing troops at the borders of <br />\n      your homeland. In the face of invasion, you have been entrusted to play <br />\n      as tactical adviser for the Orange Star Army. Command 18 different types <br />\n      of ground, air and naval units if you hope to survive the coming wars. <br />\n      Take caution of the terrain and weather as you lead your forces in 114 <br />\n      maps of turn-based warfare.<br />\n    This classic game is part of the Virtual Console service, which brings you great games created for consoles such as NES™, Super NES™ and Game Boy™ Advance. We hope you&#39;ll enjoy the new features (including off-TV play) that have been added to this title. See more Virtual Console games for Wii U.</p>",
+"metacritic": null,
+"metacritic_platforms": [],
+"released": "2001-09-10",
+"tba": false,
+"updated": "2023-01-14T04:46:34",
+"background_image": "https://media.rawg.io/media/games/bdf/bdfb7a864a840aa5ead6cbd58e786b26.jpg",
+"background_image_additional": "https://media.rawg.io/media/screenshots/735/73568b843f77b5bd71c8b88f59978d2c.jpg",
+"website": "",
+"rating": 4.4,
+"rating_top": 5,
+"ratings": [
+{
+"id": 5,
+"title": "exceptional",
+"count": 36,
+"percent": 52.94
+},
+{
+"id": 4,
+"title": "recommended",
+"count": 27,
+"percent": 39.71
+},
+{
+"id": 3,
+"title": "meh",
+"count": 3,
+"percent": 4.41
+},
+{
+"id": 1,
+"title": "skip",
+"count": 2,
+"percent": 2.94
+}
+],
+"reactions": {},
+"added": 165,
+"added_by_status": {
+"yet": 16,
+"owned": 35,
+"beaten": 54,
+"toplay": 18,
+"dropped": 32,
+"playing": 10
+},
+"playtime": 8,
+"screenshots_count": 18,
+"movies_count": 0,
+"creators_count": 3,
+"achievements_count": 0,
+"parent_achievements_count": 0,
+"reddit_url": "",
+"reddit_name": "",
+"reddit_description": "",
+"reddit_logo": "",
+"reddit_count": 0,
+"twitch_count": 141,
+"youtube_count": 977822,
+"reviews_text_count": 0,
+"ratings_count": 68,
+"suggestions_count": 58,
+"alternative_names": [
+"Game Boy Wars Advance"
+],
+"metacritic_url": "",
+"parents_count": 0,
+"additions_count": 0,
+"game_series_count": 7,
+"user_game": null,
+"reviews_count": 68,
+"saturated_color": "0f0f0f",
+"dominant_color": "0f0f0f",
+"parent_platforms": [
+{
+"platform": {
+"id": 7,
+"name": "Nintendo",
+"slug": "nintendo"
+}
+}
+],
+"platforms": [
+{
+"platform": {
+"id": 10,
+"name": "Wii U",
+"slug": "wii-u",
+"image": null,
+"year_end": null,
+"year_start": null,
+"games_count": 1234,
+"image_background": "https://media.rawg.io/media/games/6c8/6c8cb4780ce30b76b944cf656e8fff49.jpg"
+},
+"released_at": "2001-09-10",
+"requirements": {}
+},
+{
+"platform": {
+"id": 24,
+"name": "Game Boy Advance",
+"slug": "game-boy-advance",
+"image": null,
+"year_end": null,
+"year_start": null,
+"games_count": 954,
+"image_background": "https://media.rawg.io/media/games/1cf/1cf9e301f1d27172546dcabc2f6cb597.jpg"
+},
+"released_at": "2001-09-10",
+"requirements": {}
+}
+],
+"stores": [
+{
+"id": 32842,
+"url": "",
+"store": {
+"id": 6,
+"name": "Nintendo Store",
+"slug": "nintendo",
+"domain": "nintendo.com",
+"games_count": 8878,
+"image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+}
+}
+],
+"developers": [
+{
+"id": 12898,
+"name": "Intelligent Systems",
+"slug": "intelligent-systems",
+"games_count": 68,
+"image_background": "https://media.rawg.io/media/screenshots/01f/01f668d9f7e4eba668e8307c048334cf.jpg"
+}
+],
+"genres": [
+{
+"id": 10,
+"name": "Strategy",
+"slug": "strategy",
+"games_count": 50913,
+"image_background": "https://media.rawg.io/media/games/be9/be9cf02720c9326e11d0fda14518554f.jpg"
+}
+],
+"tags": [
+{
+"id": 31,
+"name": "Singleplayer",
+"slug": "singleplayer",
+"language": "eng",
+"games_count": 193456,
+"image_background": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg"
+},
+{
+"id": 7,
+"name": "Multiplayer",
+"slug": "multiplayer",
+"language": "eng",
+"games_count": 34039,
+"image_background": "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg"
+},
+{
+"id": 1867,
+"name": "puzzles",
+"slug": "puzzles",
+"language": "eng",
+"games_count": 8570,
+"image_background": "https://media.rawg.io/media/games/de6/de66bc4c72b45c3bb906c85d0628112d.jpg"
+}
+],
+"publishers": [
+{
+"id": 10681,
+"name": "Nintendo",
+"slug": "nintendo",
+"games_count": 1221,
+"image_background": "https://media.rawg.io/media/screenshots/19b/19b2867fa37100443f73312a9de80760.jpg"
+}
+],
+"esrb_rating": {
+"id": 1,
+"name": "Everyone",
+"slug": "everyone"
+},
+"clip": null,
+"description_raw": "Orange Star's commanding officer has been accused of attacking other \r\n      countries, causing war to ensue. The battle lines have been drawn, and \r\n      an elite group of sly strategists is massing troops at the borders of \r\n      your homeland. In the face of invasion, you have been entrusted to play \r\n      as tactical adviser for the Orange Star Army. Command 18 different types \r\n      of ground, air and naval units if you hope to survive the coming wars. \r\n      Take caution of the terrain and weather as you lead your forces in 114 \r\n      maps of turn-based warfare.\r\n    This classic game is part of the Virtual Console service, which brings you great games created for consoles such as NES™, Super NES™ and Game Boy™ Advance. We hope you'll enjoy the new features (including off-TV play) that have been added to this title. See more Virtual Console games for Wii U."
+}
