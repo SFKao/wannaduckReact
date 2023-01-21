@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom";
 const ListaJuegosGenero = () => {
 
 
-    const { genre } = useParams();
- const [juegos, setJuegos] = useState([]);
-  const [pag, setPag] = useState(1);
+  const { genre } = useParams();
+  let [juegos, setJuegos] = useState([]);
+  let [pag, setPag] = useState(1);
 
   const loadGames = async () => {
     const url = `https://api.rawg.io/api/games?key=5dbb137cfae446feb3caaba262996ed3&page_size=30&page=${pag}&genres=${genre}`
@@ -19,14 +19,17 @@ const ListaJuegosGenero = () => {
   }
 
   useEffect(()=>{
-    loadGames();
-    setPag(2);
-  },[])
+    pag = 1;
+    juegos = [];
+      loadGames();
+      setPag(2);
+  }, [genre])
 
   const handleCargarMas = () => {
     setPag(pag+1)
     loadGames();
   }
+
   return (
     
     ((()=>{

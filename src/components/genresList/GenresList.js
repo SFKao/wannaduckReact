@@ -30,7 +30,12 @@ const GenresList = () => {
             Indie
           </Button>
         </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/genres/rpg">
+        <NavLink NavLink style = {
+          {
+            textDecoration: "none"
+          }
+        }
+        to = "/genres/role-playing-games-rpg" >
           <Button
             variant="outlined"
             color="primary"
@@ -111,7 +116,12 @@ const GenresList = () => {
             Carreras
           </Button>
         </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/genres/mmo">
+        <NavLink style = {
+          {
+            textDecoration: "none"
+          }
+        }
+        to = "/genres/massively-multiplayer" >
           <Button
             variant="outlined"
             color="primary"
@@ -156,7 +166,12 @@ const GenresList = () => {
             Juegos de mesa
           </Button>
         </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/genres/adventure">
+        <NavLink NavLink style = {
+          {
+            textDecoration: "none"
+          }
+        }
+        to = "/genres/adventure" >
           <Button
             variant="outlined"
             color="primary"
