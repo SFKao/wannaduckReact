@@ -11,7 +11,7 @@ const GameInfo = () => {
   })[0];
 
   return (
-    <>
+    
       <Grid container spacing={2}>
         <Grid item sm={8} xs={12}>
           <CardMedia
@@ -88,9 +88,7 @@ const GameInfo = () => {
           );
         })}
       </Grid>
-
-      <div>{JSON.stringify(juego)}</div>
-    </>
+    
   );
 };
 
