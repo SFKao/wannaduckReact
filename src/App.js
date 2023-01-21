@@ -16,20 +16,24 @@ import UserInfoScreen from './components/userInfoScreen/UserInfoScreen';
 function App() {
 
   const [user, setUser] = useState(null);
-
+  const [localDisplayName, setLocalDisplayName] = useState("ERROR");
   const [triedLogin, setTriedLogin] = useState(false);
-
+  
   if(!triedLogin){
     let localUser = JSON.parse(localStorage.getItem("user"));
     if(localUser){
       setUser(localUser);
+      setLocalDisplayName(localUser.displayName);
     }
     setTriedLogin(true);
   }
 
+  
+
   return (
     <Context.Provider value={[
-      user, setUser
+      user, setUser,
+      localDisplayName, setLocalDisplayName
     ]}>
     <ThemeProvider theme={Tema}>
   <Box sx={{backgroundColor:'fondo.main'}}>

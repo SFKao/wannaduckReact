@@ -11,7 +11,7 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import { Typography } from "@mui/material";
+
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 
@@ -44,7 +44,7 @@ const auth = getAuth(app);
 
 
 const UserInfoScreen = () => {
-  const [user, setUser] = useContext(Context);
+  const [user, setUser, , setLocalDisplayName] = useContext(Context);
   const navigate = useNavigate();
 
   const [mensajeError, setMensajeError] = useState("");
@@ -62,25 +62,29 @@ const UserInfoScreen = () => {
 
   const handleActualizarUsuario = () => {
     setMensajeError("");
-    if (pass != rPass) {
+    if (pass !== rPass) {
       setMensajeError("Las contraseñas no coinciden");
       return;
     }
-    if(username != ""){
+    if(username !== ""){
       updateProfile(auth.currentUser, {
         displayName: username,
       })
         .then(() => {
+            setLocalDisplayName(username);
             let nUser = user;
             nUser.displayName = username;
             setUser(nUser);
-            setMensajeError("Actualizado!")
+            if(localStorage.getItem("user"))
+              localStorage.setItem("user", JSON.stringify(nUser));
+            setMensajeError("Actualizado nombre de usuario.")
         })
         .catch((error) => {
           setMensajeError(error.message);
         });
     }
-    
+    if(pass !== "")
+      updatePassword(user, pass).then(()=> setMensajeError("Contraseña actualizada")).catch(error=>setMensajeError(error))
   };
 
   return (

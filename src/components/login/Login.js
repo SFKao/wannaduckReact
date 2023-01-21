@@ -14,11 +14,17 @@ import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/system";
 import Duck from "../../assets/duck.png";
 import { Context } from "../context/Context";
+import HeaderButton from "../headerButton/HeaderButton";
+import Google from '../../assets/google.png'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { Checkbox } from "@mui/material";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,15 +43,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   let navigate = useNavigate();
 
-  const [user, setUser] = useContext(Context);
+  const [, setUser, ,setLocalDisplayName ] = useContext(Context);
 
   const [mensajeError, setMensajeError] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
@@ -57,6 +63,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         setUser(userCredential.user);
+        setLocalDisplayName(userCredential.user.displayName)
         if (recuerdame)
           localStorage.setItem("user", JSON.stringify(userCredential.user));
         else localStorage.removeItem("user");
@@ -64,6 +71,22 @@ const Login = () => {
       })
       .catch((error) => {
         setMensajeError(error.message);
+      });
+  };
+
+  const handleGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUser(result.user);
+        setLocalDisplayName(result.user.displayName)
+        if (recuerdame)
+          localStorage.setItem("user", JSON.stringify(result.user));
+        else localStorage.removeItem("user");
+        navigate("/");
+      })
+      .catch((error) => {
+        setMensajeError(error.message);
+        // ..
       });
   };
 
@@ -89,7 +112,7 @@ const Login = () => {
   };
 
   const handleEnter = (event) => {
-    if (event.key == "Enter") handleSummit();
+    if (event.key === "Enter") handleSummit();
   };
 
   return (
@@ -149,6 +172,13 @@ const Login = () => {
           label="Recuerdame"
           onChange={(event) => setRecuerdame(event.target.checked)}
         />
+        < HeaderButton
+        url = {Google}
+        title = "Iniciar sesion con google"
+        width = "100px"
+        sx = {{color: "primary.white",padding: 2}}
+        onClick = {handleGoogle}
+        />
         <Button
           variant="contained"
           color="primary"
@@ -167,7 +197,7 @@ const Login = () => {
         >
           Wannaduck
         </Typography>
-        <img width={300} height={300} src={Duck} />
+        <img width={300} height={300} src={Duck} alt="Logo" />
       </Stack>
     </Box>
   );

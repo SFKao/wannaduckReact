@@ -20,7 +20,6 @@ import HeaderButton from "../headerButton/HeaderButton";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -46,7 +45,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -55,7 +53,7 @@ const Registrarse = () => {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   let navigate = useNavigate();
 
-  const [user, setUser] = useContext(Context);
+  const [, setUser, , setLocalDisplayName] = useContext(Context);
 
   const [mensajeError, setMensajeError] = useState("");
   const [errorUsername, setErrorUsername] = useState(false);
@@ -74,6 +72,7 @@ const Registrarse = () => {
         })
           .then(() => {
             setUser(userCredential.user);
+            setLocalDisplayName(userCredential.user.displayName)
             if (recuerdame)
               localStorage.setItem("user", JSON.stringify(userCredential.user));
             else localStorage.removeItem("user");
@@ -130,7 +129,7 @@ const Registrarse = () => {
       setMensajeError("La contraseña debe de tener al menos 6 caracteres");
       return;
     }
-    if (rPassword != password) {
+    if (rPassword !== password) {
       setErrorRepeatPassword(true);
       setMensajeError("Las contraseñas no coinciden");
       return;
@@ -142,6 +141,7 @@ const Registrarse = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setUser(result.user);
+        setLocalDisplayName(result.user.displayName)
         if (recuerdame)
           localStorage.setItem("user", JSON.stringify(result.user));
         else localStorage.removeItem("user");
@@ -154,7 +154,7 @@ const Registrarse = () => {
   };
 
   const handleEnter = (event) => {
-    if (event.key == "Enter") handleSummit();
+    if (event.key === "Enter") handleSummit();
   };
 
   return (
@@ -270,7 +270,7 @@ const Registrarse = () => {
         >
           Wannaduck
         </Typography>
-        <img width={300} height={300} src={Duck} />
+        <img width={300} height={300} src={Duck} alt="Logo" />
       </Stack>
     </Box>
   );

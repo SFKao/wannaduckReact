@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { Context } from "../context/Context";
 import HeaderButton from "../headerButton/HeaderButton";
 import { NavLink } from "react-router-dom";
 import {
-  Autocomplete,
   Button,
   Input,
   InputAdornment,
@@ -15,7 +14,7 @@ import Tema from "../../themes/Tema";
 import duck from "../../assets/duck.png";
 
 const Header = () => {
-  const [user, setUser] = useContext(Context);
+  const [user, setUser, localDisplayName,] = useContext(Context);
 
   const handleCerrarSesion = () => {
     setUser(null);
@@ -79,7 +78,9 @@ const Header = () => {
                     color="primary"
                     sx={{ borderRadius: "16px" }}
                   >
-                    {user.displayName}
+                    {
+                      localDisplayName
+                    }
                   </Button>
                 </NavLink>
                 <Button
