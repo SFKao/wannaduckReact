@@ -16,6 +16,17 @@ import UserInfoScreen from './components/userInfoScreen/UserInfoScreen';
 function App() {
 
   const [user, setUser] = useState(null);
+
+  const [triedLogin, setTriedLogin] = useState(false);
+
+  if(!triedLogin){
+    let localUser = JSON.parse(localStorage.getItem("user"));
+    if(localUser){
+      setUser(localUser);
+    }
+    setTriedLogin(true);
+  }
+
   return (
     <Context.Provider value={[
       user, setUser
@@ -28,7 +39,7 @@ function App() {
     <Route exact path='/game/:game' element={<GameInfo/>}/>
     <Route excat path='/register' element={<Registrarse/>}/>
     <Route exact path='/login' element={<Login/>}/>
-    <Route excat path='/user' element={<UserInfoScreen/>}/>
+    <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>
     <Route path='*' element={<Error/>}/>
   </Routes>
   <Footer/>

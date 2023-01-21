@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SearchIcon = () => {
-  return (
-    <div>SearchIcon</div>
-  )
-}
+  return <div>SearchIcon</div>;
+};
 
-export default SearchIcon
+export default SearchIcon;
