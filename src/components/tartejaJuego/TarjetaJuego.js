@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 const TarjetaJuego = (props) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
-      <NavLink to={`game/${props.slug}`} style={{ textDecoration: "none" }}>
+      <NavLink to={`/game/${props.slug}`} style={{ textDecoration: "none" }}>
         <CardActionArea>
           <CardMedia
             component="img"

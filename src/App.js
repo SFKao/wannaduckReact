@@ -12,6 +12,7 @@ import Login from './components/login/Login';
 import {Context} from './components/context/Context'
 import { useState } from 'react';
 import UserInfoScreen from './components/userInfoScreen/UserInfoScreen';
+import BuscarJuego from './components/buscarJuego/BuscarJuego'
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
   <Routes>
     <Route exact path='/' element={<ListaTodo/>}/>
     <Route exact path='/game/:game' element={<GameInfo/>}/>
+    <Route exact path='/search/:game' element={<BuscarJuego/>}/>
     <Route excat path='/register' element={<Registrarse/>}/>
     <Route exact path='/login' element={<Login/>}/>
     <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>

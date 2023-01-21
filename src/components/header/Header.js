@@ -1,7 +1,7 @@
-import React, { useContext} from "react";
+import React, { useContext, useState} from "react";
 import { Context } from "../context/Context";
 import HeaderButton from "../headerButton/HeaderButton";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   Button,
   Input,
@@ -15,10 +15,21 @@ import duck from "../../assets/duck.png";
 
 const Header = () => {
   const [user, setUser, localDisplayName,] = useContext(Context);
+  const [busqueda , setBusqueda] = useState("");
+  const navigate = useNavigate();
 
   const handleCerrarSesion = () => {
     setUser(null);
     localStorage.removeItem("user");
+  };
+
+  const handleSearch = () => {
+    if(busqueda)
+      navigate(`/search/${busqueda}`)
+  }
+
+  const handleEnter = (event) => {
+    if (event.key === "Enter") handleSearch();
   };
 
   return (
@@ -36,9 +47,18 @@ const Header = () => {
         </NavLink>
         <Input
           placeholder="Buscar"
+          onKeyDown={handleEnter}
+          onChange={(state) => {
+            setBusqueda(state.target.value);
+          }}
           endAdornment={
             <InputAdornment position="end">
-              <SearchIcon color="primary" />
+              <SearchIcon
+                  sx={{ color: "primary.main" }}
+                  aria-label="toggle password visibility"
+                  onClick={handleSearch}
+                  //onMouseDown={}
+                />
             </InputAdornment>
           }
           label="Buscar"

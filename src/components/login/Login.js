@@ -49,7 +49,7 @@ const provider = new GoogleAuthProvider();
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [, setUser, ,setLocalDisplayName ] = useContext(Context);
 
