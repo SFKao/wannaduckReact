@@ -42,18 +42,22 @@ function App() {
     <ThemeProvider theme={Tema}>
   <Box sx={{backgroundColor:'fondo.main'}}>
     <Header/>
-  <Routes>
-    <Route exact path='/' element={<ListaTodo/>}/>
-    <Route exact path='/game/:game' element={<GameInfo/>}/>
-    <Route exact path='/search/:game' element={<BuscarJuego/>}/>
-    <Route excat path='/register' element={<Registrarse/>}/>
-    <Route exact path='/login' element={<Login/>}/>
-    <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>
-    <Route exact path='/genres/:genre' element={<ListaGenero/>}/>
-    <Route excat path='/user/myfavourites' element={<MisFavoritos/>}/>
-    <Route path='*' element={<Error/>}/>
-  </Routes>
+  <Box minHeight={window.innerHeight-205}>
+    <Routes>
+      <Route exact path='/' element={<ListaTodo/>}/>
+      <Route exact path='/game/:game' element={<GameInfo/>}/>
+      <Route exact path='/search/:game' element={<BuscarJuego/>}/>
+      <Route excat path='/register' element={<Registrarse/>}/>
+      <Route exact path='/login' element={<Login/>}/>
+      <Route excat path='/user/myuser' element={<UserInfoScreen/>}/>
+      <Route exact path='/genres/:genre' element={<ListaGenero/>}/>
+      <Route excat path='/user/myfavourites' element={<MisFavoritos/>}/>
+      <Route path='*' element={<Error/>}/>
+    </Routes>
+  </Box>
+  <Box style={{position: "relative", left:0, bottom: 0}}>
   <Footer/>
+  </Box>
 </Box>
 </ThemeProvider>
 </Context.Provider>

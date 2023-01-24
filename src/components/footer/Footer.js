@@ -7,6 +7,7 @@ const Footer = () => {
   return (
     <ThemeProvider theme={Tema}>
       <Stack
+      style={{height:70}}
         direction="row"
         spacing={2}
         padding={3}
