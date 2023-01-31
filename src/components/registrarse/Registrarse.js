@@ -62,6 +62,7 @@ const Registrarse = () => {
   const [errorPassword, setErrorPassword] = useState(false);
   const [errorRepeatPassword, setErrorRepeatPassword] = useState(false);
   const [recuerdame, setRecuerdame] = useState(true);
+  const [aceptadoAcuerdo, setAceptadoAcuerdo] = useState(false);
 
   const tryRegister = (email, password, username) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -101,6 +102,11 @@ const Registrarse = () => {
     setErrorEmail(false);
     setErrorPassword(false);
     setErrorRepeatPassword(false);
+
+    if(!aceptadoAcuerdo){
+      setMensajeError("Se ha de aceptar el acuerdo de licencia");
+      return;
+    }
 
     let emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -244,6 +250,13 @@ const Registrarse = () => {
           control={<Checkbox checked={recuerdame} />}
           label="Recuerdame"
           onChange={(event) => setRecuerdame(event.target.checked)}
+        />
+
+        <FormControlLabel
+          sx={{ color: "primary.main", padding: 2 }}
+          control={<Checkbox checked={aceptadoAcuerdo} />}
+          label="Aceptar acuerdo de licencia"
+          onChange={(event) => setAceptadoAcuerdo(event.target.checked)}
         />
         <Button
           variant="contained"
